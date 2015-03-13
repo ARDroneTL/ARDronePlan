@@ -1,26 +1,41 @@
+<<<<<<< HEAD
 // ÏîÄ¿Ãû£ºARDroneTL 
 // ×÷  Õß£ºÍµÀÁ·ÉĞĞÔ±ÍÅ¶Ó
 // Ê±  ¼ä£º2015.03.13
+=======
+// é¡¹ç›®åï¼šARDroneTL 
+// ä½œ  è€…ï¼šå·æ‡’é£è¡Œå‘˜å›¢é˜Ÿ
+// æ—¶  é—´ï¼š2015.02.09 23ï¼š45
+>>>>>>> origin/master
 
 #include <stdio.h>  
 #include <winsock2.h>  
 #include <assert.h>
 #include <iostream>
+<<<<<<< HEAD
 #include <fstream>
 // C++11Í·ÎÄ¼ş
+=======
+// C++11å¤´æ–‡ä»¶
+>>>>>>> origin/master
 #include <mutex>
 #include <thread>
-// ¸½¼Ó¿â
+// é™„åŠ åº“
 #include <gtk/gtk.h>
+<<<<<<< HEAD
 #include <gdk/gdkkeysyms.h>
 //±¾µØÍ·ÎÄ¼ş
+=======
+
+//æœ¬åœ°å¤´æ–‡ä»¶
+>>>>>>> origin/master
 #include "MemoryLibrary.h"
 #pragma comment(lib, "ws2_32.lib") 
 
 using namespace std;
 
 /*************************************************
-* ³£Á¿ÉùÃ÷¶¨ÒåÄ£¿é
+* å¸¸é‡å£°æ˜å®šä¹‰æ¨¡å—
 **************************************************/
 // three Port
 const int  NAVDATA_PORT = 5554;
@@ -36,7 +51,7 @@ const int C_ERRO = 0;
 fstream outfile;
 
 /*************************************************
-* ÀàĞÍÉùÃ÷Ä£¿é
+* ç±»å‹å£°æ˜æ¨¡å—
 **************************************************/
 
 // Navdata Struct
@@ -59,18 +74,18 @@ struct NAV_DATA
 	int32_t vz;
 };
 
-// UI ¿Ø¼şÁªºÏÌå
+// UI æ§ä»¶è”åˆä½“
 struct ARDrone_UI
 {
-	GtkTextBuffer*	buffer;		// Êä³öÎÄ±¾»º³åÇø
-	GtkWidget*		window;		// ´°Ìå
+	GtkTextBuffer*	buffer;		// è¾“å‡ºæ–‡æœ¬ç¼“å†²åŒº
+	GtkWidget*		window;		// çª—ä½“
 	GtkWidget*		view;		// 
-	GtkWidget*		box;		// ÈİÆ÷
-	GtkWidget*		button;		// °´Å¥
+	GtkWidget*		box;		// å®¹å™¨
+	GtkWidget*		button;		// æŒ‰é’®
 };
-ARDrone_UI* arui = new ARDrone_UI();	// È«¾ÖµÄui ¿Ø¼ş
+ARDrone_UI* arui = new ARDrone_UI();	// å…¨å±€çš„ui æ§ä»¶
 
-// ÁªºÏÌå£ºBuffer
+// è”åˆä½“ï¼šBuffer
 union INT_FLOAT_BUFFER
 {
 	float	fBuff;
@@ -78,8 +93,9 @@ union INT_FLOAT_BUFFER
 };
 
 /*
-* ARDrone ×Ô¶¨ÒåÀàµÄÏêÏ¸½éÉÜ
+* ARDrone è‡ªå®šä¹‰ç±»çš„è¯¦ç»†ä»‹ç»
 *
+<<<<<<< HEAD
 *¡¾¿ØÖÆ²Ù×÷¡¿
 * ÒÑÍê³É£ºÆğ·É¡¢½µÂä¡¢Ç°½ø¡¢ºóÍË¡¢Ïò×ó·É¡¢ÏòÓÒ·É¡¢µ÷ÕûËÙ¶È
 *¡¾³ÉÔ±±äÁ¿²Ù×÷¡¿
@@ -97,6 +113,27 @@ union INT_FLOAT_BUFFER
 * ·¢ËÍÖ¸ÁîµÄÌ×½Ó×Ö£¨Ò»Ì×£©¡¢·ÉĞĞËÙ¶È¡¢·ÉĞĞÆ÷Ãû×Ö¡¢°üĞòºÅ¡¢Ç°°üĞòºÅ¡¢»¥³âËø
 *
 * Ô­Ôò£ºÓĞËùÎª£¬ÓĞËù²»Îª
+=======
+*ã€æ§åˆ¶æ“ä½œã€‘
+* å·²å®Œæˆï¼šèµ·é£ã€é™è½ã€å‰è¿›ã€åé€€ã€å‘å·¦é£ã€å‘å³é£ã€è°ƒæ•´é€Ÿåº¦
+* å¾…å®Œæˆï¼šåŸåœ°å·¦æ—‹è½¬ï¼ŒåŸåœ°å³æ—‹è½¬
+*ã€æˆå‘˜å˜é‡æ“ä½œã€‘
+* å·²å®Œæˆï¼šè·å–å½“å‰åºå·ã€è·å–å‰åºå·ã€è·å–ååºå·ã€è®¾ç½®å‰åºå·
+* å¾…å®Œæˆï¼šæ— 
+*ã€å‘é€æŒ‡ä»¤ã€‘
+* å‘é€åŸºç¡€æŒ‡ä»¤ã€å‘é€é£è¡Œæ§åˆ¶æŒ‡ä»¤
+*ã€åˆå§‹åŒ–æ“ä½œã€‘
+* å‘é€é£è¡Œå™¨åˆå§‹åŒ–é…ç½®æŒ‡ä»¤ã€socketåˆå§‹åŒ–æ“ä½œ
+*ã€è¾…åŠ©åˆ†æã€‘
+* å·²å®Œæˆï¼šæ•°æ®åŒ…åˆ†æã€floatç±»å‹è½¬æ¢intç±»å‹
+* å¾…å®Œæˆï¼šæ— 
+*ã€å…¬æœ‰æˆå‘˜å˜é‡ã€‘
+* å¯¼èˆªæ•°æ®ã€å‰ä¸€ä¸ªæŒ‡ä»¤
+*ã€ç§æœ‰æˆå‘˜å˜é‡ã€‘
+* å‘é€æŒ‡ä»¤çš„å¥—æ¥å­—ï¼ˆä¸€å¥—ï¼‰ã€é£è¡Œé€Ÿåº¦ã€é£è¡Œå™¨åå­—ã€åŒ…åºå·ã€å‰åŒ…åºå·ã€äº’æ–¥é”
+
+* åŸåˆ™ï¼šæœ‰æ‰€ä¸ºï¼Œæœ‰æ‰€ä¸ä¸º
+>>>>>>> origin/master
 */
 class ARDrone
 {
@@ -106,7 +143,7 @@ public:
 	~ARDrone(void);
 
 public:
-	// ·ÉĞĞÆ÷²Ù×÷
+	// é£è¡Œå™¨æ“ä½œ
 	void takeoff();
 	void land();
 	void hover();
@@ -121,7 +158,7 @@ public:
 	void turnLeft();
 	void turnRight();
 
-	void setSpeed(int);		// ÉèÖÃ·ÉĞĞËÙ¶È
+	void setSpeed(int);		// è®¾ç½®é£è¡Œé€Ÿåº¦
 
 public:
 	int		getCurrentSeq(){ return this->seq_; }			// get the current sequence
@@ -131,13 +168,18 @@ public:
 
 	int		send_at_cmd(char*);					// send all command
 	int		send_pcmd(int, float, float, float, float);	// send control command
-	void	parse(MemoryLibrary::Buffer&);				// Êı¾İ°ü·ÖÎö
+	void	parse(MemoryLibrary::Buffer&);				// æ•°æ®åŒ…åˆ†æ
 
 protected:
 	void	initializeCmd();				// initialize command
 	void	initializeSocketaddr();			// initialize sockaddr_in
+<<<<<<< HEAD
 	int		floatToInt(float);				// Ê¹ÓÃÁªºÏÌåÊµÏÖfloat ×ª»¯int	
 
+=======
+	int		floatToInt(float);				// ä½¿ç”¨è”åˆä½“å®ç°float è½¬åŒ–int	
+	
+>>>>>>> origin/master
 public:
 	NAV_DATA		navData;			// ardrone's navdata 
 	char*			at_cmd_last;		// save the last command
@@ -154,17 +196,22 @@ private:
 };
 
 /*************************************************
-* ARDrone Àà³ÉÔ±º¯ÊıµÄÊµÏÖÄ£¿é£¨model£©
+* ARDrone ç±»æˆå‘˜å‡½æ•°çš„å®ç°æ¨¡å—ï¼ˆmodelï¼‰
 **************************************************/
 ARDrone::ARDrone(char* name)
 {
 	this->name_ = name;
+<<<<<<< HEAD
 	// ÓÃWSAStartup Æô¶¯Ws2_32.lib
+=======
+
+	// ç”¨WSAStartup å¯åŠ¨Ws2_32.lib
+>>>>>>> origin/master
 	WORD socketVersion = MAKEWORD(2, 2);
 	WSADATA wsaData;
 	assert(WSAStartup(socketVersion, &wsaData) == 0);
 
-	// ³ÉÔ±±äÁ¿³õÊ¼»¯
+	// æˆå‘˜å˜é‡åˆå§‹åŒ–
 	this->socketat_ = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
 	initializeSocketaddr();
 
@@ -183,9 +230,15 @@ ARDrone::~ARDrone()
 {
 	delete[] at_cmd_last;
 	delete[] name_;
+<<<<<<< HEAD
 
 	WSACleanup();					// ÊÍ·ÅWinsock¿â
 	closesocket(this->socketat_);	// ¹Ø±ÕSOCKET
+=======
+	
+	WSACleanup();					// é‡Šæ”¾Winsockåº“
+	closesocket(this->socketat_);	// å…³é—­SOCKET
+>>>>>>> origin/master
 }
 
 // initialize sockaddr_in
@@ -198,11 +251,11 @@ void ARDrone::initializeSocketaddr()
 	outfile << "IP:" << ARDrone_IP << "Port:" << AT_PORT << std::endl;
 }
 
-// initialize command£¨Ã»ÓĞÊ¹ÓÃ£©
+// initialize commandï¼ˆæ²¡æœ‰ä½¿ç”¨ï¼‰
 void ARDrone::initializeCmd()
 {
 	char cmd[1024];
-	// ÉèÖÃ×î´ó¸ß¶È
+	// è®¾ç½®æœ€å¤§é«˜åº¦
 	sprintf_s(cmd, "AT*CONFIG=%d,\"control:altitude_max\",\"2000\"\r", getNextSeq());
 	assert(send_at_cmd(cmd));
 	Sleep(INTERVAL);
@@ -212,7 +265,7 @@ void ARDrone::initializeCmd()
 	assert(send_at_cmd(cmd));
 	Sleep(INTERVAL);
 
-	// ÉèÖÃ³¬Éù²¨ÆµÂÊ
+	// è®¾ç½®è¶…å£°æ³¢é¢‘ç‡
 	sprintf_s(cmd, "AT*CONFIG=%d,\"pic:ultrasound_freq\",\"8\"\r", getNextSeq());
 	assert(send_at_cmd(cmd));
 	Sleep(INTERVAL);
@@ -222,7 +275,7 @@ void ARDrone::initializeCmd()
 	Sleep(INTERVAL);
 }
 
-// ·ÉĞĞ¿ØÖÆº¯ÊıÊµÏÖ²¿·Ö
+// é£è¡Œæ§åˆ¶å‡½æ•°å®ç°éƒ¨åˆ†
 void ARDrone::takeoff()
 {
 	char cmd[1024];
@@ -307,7 +360,7 @@ void ARDrone::setSpeed(int mul)
 // get the lastest sequence
 int ARDrone::getNextSeq()
 {
-	// »¥³âËø:ÓÃÓÚ¶àÏß³Ì
+	// äº’æ–¥é”:ç”¨äºå¤šçº¿ç¨‹
 	this->mtx.lock();
 	seq_ += 1;
 	this->mtx.unlock();
@@ -334,7 +387,7 @@ int ARDrone::send_pcmd(int enable, float roll, float pitch, float gaz, float yaw
 // send all command
 int ARDrone::send_at_cmd(char* cmd)
 {
-	// »¥³âËø:ÓÃÓÚ¶àÏß³ÌC++11
+	// äº’æ–¥é”:ç”¨äºå¤šçº¿ç¨‹C++11
 	this->mtx.lock();
 	at_cmd_last = cmd;
 	int result = sendto(this->socketat_, cmd, strlen(cmd), 0, (sockaddr *)&Atsin_, this->lenSin_);
@@ -473,8 +526,9 @@ void ARDrone::parse(MemoryLibrary::Buffer& buffer)
 }
 
 /********************************
-* ÏûÏ¢ÏìÓ¦¿ØÖÆÄ£¿é£¨control£©
+* æ¶ˆæ¯å“åº”æ§åˆ¶æ¨¡å—ï¼ˆcontrolï¼‰
 *********************************/
+<<<<<<< HEAD
 
 // ´°¿ÚÏú»Ù
 void destroy(GtkWidget *widget, gpointer data)
@@ -483,12 +537,16 @@ void destroy(GtkWidget *widget, gpointer data)
 }
 
 // ¼üÅÌ¿ØÖÆÏûÏ¢ÏìÓ¦º¯Êı
+=======
+// é”®ç›˜æ§åˆ¶æ¶ˆæ¯å“åº”å‡½æ•°
+>>>>>>> origin/master
 void control(GtkWidget* widget, GdkEventKey* event, gpointer data)
 {
 	ARDrone* ardrone = (ARDrone*)data;
 	guint keyValue = event->keyval;
 	switch (keyValue)
 	{
+<<<<<<< HEAD
 	case 1://1
 		ardrone->takeoff(); break;
 	case 50://2
@@ -508,6 +566,31 @@ void control(GtkWidget* widget, GdkEventKey* event, gpointer data)
 }
 
 void keyReleaseEvent(GtkWidget* widget, GdkEventKey* event, gpointer data)
+=======
+		case GDK_KEY_KP_Enter:
+			ardrone->takeoff(); break;
+		case GDK_KEY_BackSpace:
+			ardrone->land(); break;
+		case GDK_KEY_W: 
+			ardrone->goingUp(); break;
+		case GDK_KEY_S: 
+			ardrone->goingDown(); break;
+		case GDK_KEY_A: 
+			ardrone->turnLeft(); break;
+		case GDK_KEY_D: 
+			ardrone->turnRight(); break;
+		default: 
+			printf("æŒ‡ä»¤ä¸æ”¯æŒ\n");break;
+	}
+}
+
+/******************************************
+* UI æ¨¡å— (VIEW)
+******************************************/
+
+// çª—å£é”€æ¯
+void destroy (GtkWidget *widget, gpointer data)
+>>>>>>> origin/master
 {
 	ARDrone* ardrone = (ARDrone*)data;
 	guint keyValue = event->keyval;
@@ -517,6 +600,7 @@ void keyReleaseEvent(GtkWidget* widget, GdkEventKey* event, gpointer data)
 	ardrone->hover();
 }
 
+<<<<<<< HEAD
 /******************************************
 * UI Ä£¿é (VIEW)
 ******************************************/
@@ -534,25 +618,51 @@ void initGtk(int argc, char* argv[], ARDrone* ardrone)
 	/*
 	// ¿Ø¼şÉèÖÃ
 	arui->box = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 5);		// ÈİÆ÷¿Ø¼şÔÚË®Æ½·½Î»
+=======
+// UI åˆå§‹åŒ–
+void initGtk(int argc, char* argv[])
+{
+	gtk_init(&argc, &argv);
+
+	// çª—ä½“å±æ€§è®¾ç½®
+	arui->window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
+	gtk_window_set_title(GTK_WINDOW(arui->window), "myARDrone");
+    gtk_window_set_default_size(GTK_WINDOW(arui->window), 400, 300);
+    gtk_window_set_position(GTK_WINDOW(arui->window), GTK_WIN_POS_CENTER);
+    gtk_container_set_border_width(GTK_CONTAINER(arui->window), 40);
+	
+	// æ§ä»¶è®¾ç½®
+	arui->box = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 10);		// å®¹å™¨æ§ä»¶åœ¨æ°´å¹³æ–¹ä½
+>>>>>>> origin/master
 	gtk_container_add(GTK_CONTAINER(arui->window), arui->box);
 	arui->buffer = gtk_text_buffer_new(NULL);
 	arui->view = gtk_text_view_new_with_buffer(arui->buffer);
 	gtk_box_pack_start(GTK_BOX(arui->box), arui->view, TRUE, TRUE, 10);
 	gtk_widget_set_size_request(arui->view, 10, 15);
+<<<<<<< HEAD
 	*/
 	// ÏûÏ¢ÏìÓ¦
 	g_signal_connect(G_OBJECT(arui->window), "destroy", G_CALLBACK(destroy), NULL);
 	g_signal_connect(G_OBJECT(arui->window), "key_press_event", G_CALLBACK(control), ardrone);
 	//g_signal_connect(G_OBJECT(arui->window), "key_release_event", G_CALLBACK(keyReleaseEvent), ardrone);
+=======
+
+	// æ¶ˆæ¯å“åº”
+	g_signal_connect(G_OBJECT (arui->window), "destroy", G_CALLBACK(destroy), NULL);
+
+	// button = gtk_button_new_with_label("getNavData");
+	// g_signal_connect(G_OBJECT(button), "clicked", G_CALLBACK(button_event), NULL);
+	// gtk_box_pack_start(GTK_BOX(box), button, TRUE, TRUE, 10);
+>>>>>>> origin/master
 
 	gtk_widget_show_all(arui->window);
 }
 
 /******************************************
-* ¹¤×÷Ïß³ÌÄ£¿é
+* å·¥ä½œçº¿ç¨‹æ¨¡å—
 ******************************************/
 
-// ±£³ÖÓëArdroneÁ¬½ÓµÄÏß³Ì
+// ä¿æŒä¸Ardroneè¿æ¥çš„çº¿ç¨‹
 void weakUpThread(ARDrone* ardrone)
 {
 	char cmd[1024] = { 0 };
@@ -575,7 +685,7 @@ void weakUpThread(ARDrone* ardrone)
 	}
 }
 
-// »ñÈ¡µ¼º½Êı¾İµÄÏß³Ì
+// è·å–å¯¼èˆªæ•°æ®çš„çº¿ç¨‹
 void NavDataThread(ARDrone* ardrone)
 {
 	SOCKET socketNav_ = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
@@ -585,7 +695,7 @@ void NavDataThread(ARDrone* ardrone)
 	navSin_.sin_addr.s_addr = inet_addr(ARDrone_IP);
 	int lenNavSin_ = sizeof(navSin_);
 
-	// ¼¤»îÖ¸Áî·¢ÍùNAVDATA_PORT ¶Ë¿Ú
+	// æ¿€æ´»æŒ‡ä»¤å‘å¾€NAVDATA_PORT ç«¯å£
 	const char trigger[4] = { 0x01, 0x00, 0x00, 0x00 };
 	int result = sendto(socketNav_, trigger, strlen(trigger), 0, (sockaddr *)&navSin_, lenNavSin_);
 	if (result != SOCKET_ERROR)
@@ -594,10 +704,11 @@ void NavDataThread(ARDrone* ardrone)
 		outfile << "Sent trigger flag to UDP port : " << NAVDATA_PORT << endl;
 	}
 
-	// ÅäÖÃÖ¸Áî·¢ÍùAT_PORT ¶Ë¿Ú
+	// é…ç½®æŒ‡ä»¤å‘å¾€AT_PORT ç«¯å£
 	char initCmd[1024] = { 0 };
 	sprintf_s(initCmd, "AT*CONFIG=%d,\"general:navdata_demo\",\"TRUE\"\r", ardrone->getNextSeq());
 	assert(ardrone->send_at_cmd(initCmd));
+<<<<<<< HEAD
 
 	// ½ÓÊÕÊı¾İ°ü
 	MemoryLibrary::Buffer navDataBuffer;	// ¶ş½øÖÆÊı¾İ»º³åÇø
@@ -607,6 +718,18 @@ void NavDataThread(ARDrone* ardrone)
 	// UI ²¿·Ö
 	char text[100] = { 0 };					// µ¼º½Êı¾İÏÔÊ¾×Ö·û´®
 	
+=======
+	
+	// æ¥æ”¶æ•°æ®åŒ…
+	MemoryLibrary::Buffer navDataBuffer;	// äºŒè¿›åˆ¶æ•°æ®ç¼“å†²åŒº
+	char recv[1024] = {0};					// æ•°æ®åŒ…æ¥æ”¶æ•°ç»„
+	int lenRecv		= 0;
+	int delay		= 0;
+	// UI éƒ¨åˆ†
+	char text[100]	= {0};					// å¯¼èˆªæ•°æ®æ˜¾ç¤ºå­—ç¬¦ä¸²
+	GtkTextIter start,end;					// ç¼“å†²åŒºå¼€å§‹å’Œç»“æŸä½ç½®
+
+>>>>>>> origin/master
 	while (true)
 	{
 		lenRecv = recvfrom(socketNav_, recv, 1024, 0, (struct sockaddr*)&navSin_, &lenNavSin_);
@@ -620,17 +743,23 @@ void NavDataThread(ARDrone* ardrone)
 			ardrone->parse(navDataBuffer);
 
 			sprintf_s(text, "batreeyLevel: %d%%  altitude: %d\n"
+<<<<<<< HEAD
 				, ardrone->navData.batteryLevel, ardrone->navData.altitude);
 			//outfile <<text;
 			// gtk_text_buffer_get_bounds(GTK_TEXT_BUFFER(arui->buffer), &start, &end);    //»ñµÃ»º³åÇø¿ªÊ¼ºÍ½áÊøÎ»ÖÃµÄIter	
 			// gtk_text_buffer_set_text(GTK_TEXT_BUFFER(arui->buffer), text, -1);		//²åÈëÎÄ±¾µ½»º³åÇø
 
+=======
+					, ardrone->navData.batteryLevel, ardrone->navData.altitude); 
+			gtk_text_buffer_get_bounds(GTK_TEXT_BUFFER(arui->buffer), &start, &end);//è·å¾—ç¼“å†²åŒºå¼€å§‹å’Œç»“æŸä½ç½®çš„Iter	
+			gtk_text_buffer_set_text(GTK_TEXT_BUFFER(arui->buffer), text, 30);		//æ’å…¥æ–‡æœ¬åˆ°ç¼“å†²åŒº
+>>>>>>> origin/master
 		}
 	}
 }
 
 /******************************************
-* Ö÷º¯ÊıÄ£¿é
+* ä¸»å‡½æ•°æ¨¡å—
 ******************************************/
 int main(int argc, char* argv[])
 {
@@ -640,15 +769,20 @@ int main(int argc, char* argv[])
 	ARDrone* ardrone = new ARDrone("myardrone");
 	initGtk(argc, argv, ardrone);
 
-	// C++11 ÉùÃ÷µ¼º½Êı¾İµÄÏß³Ì
+	// C++11 å£°æ˜å¯¼èˆªæ•°æ®çš„çº¿ç¨‹
 	std::thread navThread(NavDataThread, ardrone);
 	std::thread weakThread(weakUpThread, ardrone);
 
-	// UIÑ­»·
+	// UIå¾ªç¯
 	gtk_main();
 
+<<<<<<< HEAD
 	// ¿ÕÑ­»·£ºUI¹Ø±Õºó±£³ÖÆäËûÏß³ÌÔËĞĞ
 	while (true)
+=======
+	// ç©ºå¾ªç¯ï¼šUIå…³é—­åä¿æŒå…¶ä»–çº¿ç¨‹è¿è¡Œ
+	while(true)
+>>>>>>> origin/master
 	{
 		;
 	}
